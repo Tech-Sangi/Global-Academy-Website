@@ -1,5 +1,6 @@
 import React from 'react'
 import { GraduationCap, Award, Stethoscope, HeartPulse } from 'lucide-react'
+import SEO from '../components/SEO'
 
 const alumniData = [
     {
@@ -36,6 +37,10 @@ const alumniData = [
 function HallOfFamePage() {
     return (
         <div className="page-transition">
+            <SEO
+                title="Hall of Fame"
+                description="Celebrating the outstanding achievements of Global Academy alumni making a global impact in medical, professional, and academic fields."
+            />
             {/* HEADER SECTION */}
             <section className="ga-page-header">
                 <div className="container">

@@ -121,7 +121,6 @@ function Layout() {
 
           <nav className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="mobile-nav-header">
-              <img src="/assets/logo.png" alt="Logo" className="mobile-logo-small" />
               <button className="close-menu" onClick={() => setIsMobileMenuOpen(false)}>
                 <X size={28} />
               </button>

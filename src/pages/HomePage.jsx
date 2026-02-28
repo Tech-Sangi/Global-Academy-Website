@@ -60,7 +60,8 @@ function HomePage() {
               <Star size={16} fill="var(--brand)" /> <span>Leading Nepal's Education Since 2005</span>
             </div>
             <h1>
-              Empowering Minds, <span className="text-gradient">Shaping Future Leaders.</span>
+              Empowering Minds,<br />
+              <span className="text-gradient">Shaping Future Leaders.</span>
             </h1>
             <p>
               Providing world-class education in Mahendranagar, Kanchanpur. We combine academic brilliance with holistic growth to prepare students for a changing world.

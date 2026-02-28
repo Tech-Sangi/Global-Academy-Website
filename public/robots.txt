@@ -1,4 +1,28 @@
 User-agent: *
 Allow: /
 
+# Specific rules for AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Host & Sitemap
 Sitemap: https://globalacademy.edu.np/sitemap.xml
+Host: globalacademy.edu.np

@@ -2,7 +2,7 @@ import React from 'react'
 import SEO from '../components/SEO'
 
 const seeBatches = [
-    { id: 1, title: '9th SEE Batch 2075', image: '/assets/batch-2075.jpg' },
+    { id: 1, title: '9th SEE Batch 2075', image: '/assets/batch-2075.png' },
     { id: 2, title: '6th SLC Batch 2072', image: '/assets/batch-2072.jpg' },
     { id: 3, title: '5th SLC Batch 2071', image: '/assets/batch-2071.jpg' },
     { id: 4, title: '3rd SLC Batch 2069', image: '/assets/batch-2069.jpg' },

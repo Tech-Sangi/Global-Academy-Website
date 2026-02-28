@@ -1,3 +1,5 @@
+import SEO from '../components/SEO';
+
 const ContentPage = ({ page }) => {
   const renderContent = () => {
     switch (page.layout) {
@@ -62,6 +64,10 @@ const ContentPage = ({ page }) => {
 
   return (
     <main className="ga-content-page">
+      <SEO
+        title={page.title}
+        description={page.summary}
+      />
       <section className="ga-page-header">
         <div className="container">
           <div className="section-header center pt-20">

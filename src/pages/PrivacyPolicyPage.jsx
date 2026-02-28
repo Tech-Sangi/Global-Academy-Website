@@ -1,8 +1,13 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 function PrivacyPolicyPage() {
     return (
         <div className="page-transition">
+            <SEO
+                title="Privacy Policy"
+                description="Global Academy Secondary School Privacy Policy. Information on how we collect, use, and protect your personal data."
+            />
             <section className="ga-page-header">
                 <div className="container">
                     <div className="section-header center pt-20">

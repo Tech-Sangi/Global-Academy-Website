@@ -1,8 +1,13 @@
 import React from 'react'
+import SEO from '../components/SEO'
 
 function TermsOfServicePage() {
     return (
         <div className="page-transition">
+            <SEO
+                title="Terms of Service"
+                description="Terms and conditions for using the Global Academy Secondary School website and services."
+            />
             <section className="ga-page-header">
                 <div className="container">
                     <div className="section-header center pt-20">

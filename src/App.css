@@ -350,7 +350,7 @@ h6 {
 }
 
 .hero {
-  padding: 5rem 0 4rem;
+  padding: 5rem 0 8rem;
   background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
   position: relative;
   overflow: hidden;
@@ -378,10 +378,11 @@ h6 {
   box-shadow: var(--shadow-sm);
 }
 
-.hero h2 {
-  font-size: clamp(2.25rem, 4.8vw, 3.8rem);
+.hero h1 {
+  font-size: clamp(2.5rem, 5.2vw, 3.5rem);
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .hero p {
@@ -2404,14 +2405,15 @@ h6 {
   .mobile-nav-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 1.5rem;
+    justify-content: flex-start !important;
+    padding: 1rem 0.25rem !important;
+    /* Minimized left padding for "full left" button */
     border-bottom: 1px solid #f1f5f9;
     background: white;
     position: sticky;
     top: 0;
     z-index: 10;
-    min-height: 80px;
+    min-height: 70px;
   }
 
   .mobile-logo-small {
@@ -2424,14 +2426,16 @@ h6 {
     border: none;
     color: #64748b;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 44px;
+    /* Slightly larger for better touch target */
+    height: 44px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    margin-right: -0.5rem;
+    margin-left: 0 !important;
+    margin-right: auto !important;
   }
 
   .close-menu:hover {
@@ -2697,7 +2701,10 @@ h6 {
 
   .header-inner {
     min-height: 60px !important;
-    padding: 0.5rem 0 !important;
+    padding: 0.5rem 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: space-between !important;
   }
 
   /* Shrink logo and text to prevent overlap with hamburger */
@@ -2724,18 +2731,55 @@ h6 {
     margin-right: -0.25rem;
   }
 
-  /* Ensure the open mobile nav doesn't take too much space and feels app-like */
+  /* Open mobile nav: Larger width and strict left alignment */
   .main-nav {
-    width: 280px !important;
+    width: 85% !important;
+    max-width: 400px !important;
+    align-items: flex-start !important;
+    /* Force children (header, nav items) to start on the left */
+  }
+
+  .mobile-nav-header {
+    width: 100% !important;
+    justify-content: flex-start !important;
   }
 
   .nav-items-container {
     padding: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
 
   .main-nav a {
     font-size: 1.05rem !important;
-    padding: 0.6rem 0.8rem !important;
+    padding: 0.8rem 1rem !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    gap: 0.75rem !important;
+  }
+
+  .main-nav .dropdown-menu {
+    border-left: 2px solid #fce7f3 !important;
+    border-right: none !important;
+    margin: 0.25rem 0 0.75rem 0.5rem !important;
+    /* Reduced indentation for sub-items */
+    padding: 0.25rem 0 0.25rem 0.5rem !important;
+    display: none;
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+
+  .main-nav .dropdown-menu.show {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Ensure deep nested items ignore extra padding */
+  .main-nav .dropdown-menu .dropdown-menu {
+    margin-left: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
 
   /* --- Mobile App Hero & Button Improvements --- */
@@ -2755,9 +2799,9 @@ h6 {
     justify-content: center;
   }
 
-  .hero h2 {
-    font-size: 2.2rem !important;
-    line-height: 1.2 !important;
+  .hero h1 {
+    font-size: 2.6rem !important;
+    line-height: 1.15 !important;
     margin-bottom: 1.5rem !important;
   }
 
