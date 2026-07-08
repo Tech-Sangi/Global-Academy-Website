@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
 import SEO from '../components/SEO'
@@ -18,7 +20,8 @@ function ContactPage() {
         setStatus('submitting')
 
         const formDataToSubmit = new FormData(e.target);
-        formDataToSubmit.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+        const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || process.env.VITE_WEB3FORMS_ACCESS_KEY || "e20b3cb1-97b7-4f63-95c5-bfeb21e0fa35"; // Fallback to avoid empty access key if env is not loaded
+        formDataToSubmit.append("access_key", accessKey);
         formDataToSubmit.append("subject", "New Contact Form Submission - Global Academy");
         formDataToSubmit.append("from_name", "Global Academy Contact Form");
 

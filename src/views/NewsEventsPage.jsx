@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react'
 import SEO from '../components/SEO'
 
@@ -6,7 +8,7 @@ function NewsEventsPage() {
         // This script ensures the Facebook SDK parses the XFBML elements
         // when the component mounts, so the page plugin renders correctly
         // even during client-side navigation.
-        if (window.FB) {
+        if (typeof window !== 'undefined' && window.FB) {
             window.FB.XFBML.parse();
         }
     }, []);

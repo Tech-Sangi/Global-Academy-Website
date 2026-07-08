@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { FileText, ClipboardCheck, GraduationCap, CheckCircle, ArrowRight } from 'lucide-react'
 import SEO from '../components/SEO'
 
@@ -112,7 +112,7 @@ function AdmissionPage() {
                             </div>
 
                             <Link
-                                to="/contact-us"
+                                href="/contact-us"
                                 className="hover-lift"
                                 style={{
                                     display: 'inline-flex', alignItems: 'center', gap: '0.75rem',

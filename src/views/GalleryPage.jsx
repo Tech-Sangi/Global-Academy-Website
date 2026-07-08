@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react'
 import SEO from '../components/SEO'
 import { X, ZoomIn } from 'lucide-react'

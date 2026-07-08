@@ -1,6 +1,7 @@
 import SEO from '../components/SEO';
 
 const ContentPage = ({ page }) => {
+  if (!page) return null;
   const renderContent = () => {
     switch (page.layout) {
       case 'staff':

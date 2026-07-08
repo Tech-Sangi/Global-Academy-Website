@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import SEO from '../components/SEO'
 import {
   ArrowRight,
@@ -47,7 +47,7 @@ const schoolFeatures = [
 
 function HomePage() {
   return (
-    <div className="home-modern">
+    <div className="home-modern page-transition">
       <SEO
         title="Best Secondary School in Mahendranagar"
         description="Global Academy Secondary School is the premier educational institution in Mahendranagar, Kanchanpur. Offering Montessori to Grade 10 with a focus on academic excellence, innovation, and holistic student development."
@@ -57,7 +57,7 @@ function HomePage() {
         <div className="container hero-grid">
           <div className="hero-content">
             <div className="hero-tag">
-              <Star size={16} fill="var(--brand)" /> <span>Leading Nepal's Education Since 2005</span>
+              <span>Leading Nepal's Education <span className="hero-tag-year">Since 2005</span></span>
             </div>
             <h1>
               Empowering Minds,<br />
@@ -67,31 +67,17 @@ function HomePage() {
               Providing world-class education in Mahendranagar, Kanchanpur. We combine academic brilliance with holistic growth to prepare students for a changing world.
             </p>
             <div className="btn-group">
-              <Link to="/admission" className="cta-btn hover-lift">
+              <Link href="/admission" className="cta-btn hover-lift">
                 Apply for Admission <ArrowRight size={18} />
               </Link>
-              <Link to="/who-we-are" className="btn-outline hover-lift" style={{
-                padding: '0.75rem 1.5rem',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--line)',
-                textDecoration: 'none',
-                color: 'var(--text)',
-                fontWeight: '600'
-              }}>
+              <Link href="/who-we-are" className="btn-secondary-custom hover-lift">
                 Discover Global
               </Link>
             </div>
           </div>
           <div className="hero-visual">
             <div className="hero-img-wrap">
-              <img src="/assets/hero-school-actual.jpg" alt="Global Academy Modern School" />
-            </div>
-            <div className="hero-card-float glass">
-              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
-                <Award size={20} color="var(--brand)" />
-                <strong style={{ fontSize: '0.875rem' }}>Top Rated</strong>
-              </div>
-              <p style={{ fontSize: '0.75rem', margin: 0 }}>Recognized for academic brilliance in secondary education.</p>
+              <img src="/assets/school-watercolor.jpg" alt="Global Academy Secondary School Sketch" />
             </div>
           </div>
         </div>
@@ -254,10 +240,10 @@ function HomePage() {
             Admissions are now open for the upcoming academic session. Join the Global family and give your future the best start.
           </p>
           <div className="btn-group" style={{ justifyContent: 'center' }}>
-            <Link to="/admission" className="cta-btn hover-lift" style={{ background: 'white', color: 'var(--brand-dark)' }}>
+            <Link href="/admission" className="cta-btn hover-lift" style={{ background: 'white', color: 'var(--brand-dark)' }}>
               Explore Admissions
             </Link>
-            <Link to="/contact-us" className="btn-outline hover-lift" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', textDecoration: 'none', padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-md)', fontWeight: '600' }}>
+            <Link href="/contact-us" className="btn-outline hover-lift" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', textDecoration: 'none', padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-md)', fontWeight: '600' }}>
               Contact Us
             </Link>
           </div>

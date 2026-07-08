@@ -1,5 +1,8 @@
+'use client';
+
 import { useState, useEffect } from 'react'
-import { NavLink, Outlet, Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ChevronDown, Phone, Mail, MapPin, Facebook, Instagram, Youtube, GraduationCap, ArrowRight, Clock, Menu, X } from 'lucide-react'
 
 const mainNav = [
@@ -32,13 +35,13 @@ const mainNav = [
 
 const NavItem = ({ item, onClick, isMobile }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const hasChildren = item.children && item.children.length > 0;
 
   // Close sub-menu when location changes
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   const handleToggle = (e) => {
     if (hasChildren && isMobile) {
@@ -49,21 +52,23 @@ const NavItem = ({ item, onClick, isMobile }) => {
     }
   };
 
+  // Determine if active route
+  const isActive = pathname === item.to || (item.to !== '/' && pathname.startsWith(item.to));
+
   return (
     <div
       className={`nav-item-wrapper ${hasChildren ? 'has-dropdown' : ''}`}
       onMouseEnter={() => !isMobile && hasChildren && setIsOpen(true)}
       onMouseLeave={() => !isMobile && hasChildren && setIsOpen(false)}
     >
-      <NavLink
-        to={item.to}
-        end={item.to === '/'}
-        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+      <Link
+        href={item.to}
+        className={`nav-link ${isActive ? 'active' : ''}`}
         onClick={handleToggle}
       >
         {item.label}
         {hasChildren && <ChevronDown size={14} className={`chevron ${isOpen ? 'rotate' : ''}`} />}
-      </NavLink>
+      </Link>
 
       {hasChildren && (
         <div className={`dropdown-menu ${isOpen ? 'show' : ''}`}>
@@ -76,11 +81,12 @@ const NavItem = ({ item, onClick, isMobile }) => {
   );
 };
 
-function Layout() {
+function Layout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    setIsMobile(window.innerWidth <= 1024)
     const handleResize = () => setIsMobile(window.innerWidth <= 1024);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -107,11 +113,11 @@ function Layout() {
 
       <header className={`top-header glass ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="container header-inner">
-          <Link to="/" className="branding" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link href="/" className="branding" onClick={() => setIsMobileMenuOpen(false)}>
             <img src="/assets/logo.png" alt="Global Academy Logo" className="header-logo-img" />
             <div className="branding-text">
-              <h1>Global <span className="text-gradient">Academy</span></h1>
-              <span className="brand-tagline">Excellence in Education</span>
+              <h1 className="branding-title">Global Academy</h1>
+              <span className="brand-subtitle">Secondary School</span>
             </div>
           </Link>
 
@@ -130,19 +136,19 @@ function Layout() {
                 <NavItem key={item.to} item={item} onClick={() => setIsMobileMenuOpen(false)} isMobile={isMobile} />
               ))}
             </div>
-            <Link to="/admission" className="cta-btn mobile-cta" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/admission" className="cta-btn mobile-cta" onClick={() => setIsMobileMenuOpen(false)}>
               Admission Open
             </Link>
           </nav>
 
-          <Link to="/admission" className="cta-btn desktop-cta">
+          <Link href="/admission" className="cta-btn desktop-cta">
             Admission Open
           </Link>
         </div>
       </header>
 
       <main id="main-content">
-        <Outlet />
+        {children}
       </main>
 
       <footer className="footer">
@@ -150,7 +156,7 @@ function Layout() {
           <div className="footer-grid-top">
             {/* Branding Column */}
             <div className="footer-col branding-col">
-              <Link to="/" className="branding footer-logo" style={{ marginBottom: '1.5rem' }}>
+              <Link href="/" className="branding footer-logo" style={{ marginBottom: '1.5rem' }}>
                 <img src="/assets/logo.png" alt="Global Academy Logo" className="footer-logo-img" />
                 <h2 className="ga-text-white" style={{ margin: 0, fontSize: '1.8rem', color: 'white' }}>Global Academy</h2>
               </Link>
@@ -170,7 +176,7 @@ function Layout() {
               <ul className="footer-links">
                 {mainNav.map(item => (
                   <li key={item.to}>
-                    <Link to={item.to}>{item.label}</Link>
+                    <Link href={item.to}>{item.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -227,9 +233,9 @@ function Layout() {
               Developed by <a href="https://techsangi.com.np" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--brand)', textDecoration: 'none', fontWeight: 'bold' }}>Tech Sangi</a>
             </p>
             <div className="footer-legal">
-              <Link to="/report-error" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem' }} className="hover-text-white">Report Website Error</Link>
-              <Link to="/privacy-policy" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem' }} className="hover-text-white">Privacy Policy</Link>
-              <Link to="/terms-of-service" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem' }} className="hover-text-white">Terms of Service</Link>
+              <Link href="/report-error" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem' }} className="hover-text-white">Report Website Error</Link>
+              <Link href="/privacy-policy" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem' }} className="hover-text-white">Privacy Policy</Link>
+              <Link href="/terms-of-service" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem' }} className="hover-text-white">Terms of Service</Link>
             </div>
           </div>
         </div>
