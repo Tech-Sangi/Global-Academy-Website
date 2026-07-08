@@ -180,12 +180,11 @@ h6 {
   align-items: center;
   gap: 0.8rem;
   text-decoration: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .branding:hover {
   opacity: 0.95;
-  transform: translateY(-1px);
 }
 
 .branding-text {

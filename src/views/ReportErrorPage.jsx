@@ -124,7 +124,7 @@ function ReportErrorPage() {
                             <button
                                 type="submit"
                                 disabled={status === 'sending'}
-                                className="cta-btn hover-lift"
+                                className="cta-btn"
                                 style={{ width: '100%', display: 'flex', justifyContent: 'center', gap: '0.5rem', opacity: status === 'sending' ? 0.7 : 1, transition: 'all 0.2s' }}
                             >
                                 {status === 'sending' ? 'Sending Report...' : 'Send Error Report'} <Send size={18} />

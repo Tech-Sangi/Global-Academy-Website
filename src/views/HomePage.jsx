@@ -67,10 +67,10 @@ function HomePage() {
               Providing world-class education in Mahendranagar, Kanchanpur. We combine academic brilliance with holistic growth to prepare students for a changing world.
             </p>
             <div className="btn-group">
-              <Link href="/admission" className="cta-btn hover-lift">
+              <Link href="/admission" className="cta-btn">
                 Apply for Admission <ArrowRight size={18} />
               </Link>
-              <Link href="/who-we-are" className="btn-secondary-custom hover-lift">
+              <Link href="/who-we-are" className="btn-secondary-custom">
                 Discover Global
               </Link>
             </div>
@@ -240,10 +240,10 @@ function HomePage() {
             Admissions are now open for the upcoming academic session. Join the Global family and give your future the best start.
           </p>
           <div className="btn-group" style={{ justifyContent: 'center' }}>
-            <Link href="/admission" className="cta-btn hover-lift" style={{ background: 'white', color: 'var(--brand-dark)' }}>
+            <Link href="/admission" className="cta-btn" style={{ background: 'white', color: 'var(--brand-dark)' }}>
               Explore Admissions
             </Link>
-            <Link href="/contact-us" className="btn-outline hover-lift" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', textDecoration: 'none', padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-md)', fontWeight: '600' }}>
+            <Link href="/contact-us" className="btn-outline" style={{ border: '1px solid rgba(255,255,255,0.3)', color: 'white', textDecoration: 'none', padding: '0.75rem 1.5rem', borderRadius: 'var(--radius-md)', fontWeight: '600' }}>
               Contact Us
             </Link>
           </div>
