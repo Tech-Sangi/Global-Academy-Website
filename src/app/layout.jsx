@@ -6,6 +6,12 @@ import '../App.css'
 
 const BASE_URL = 'https://globalacademy.edu.np';
 
+export const viewport = {
+  themeColor: '#961162',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
@@ -27,6 +33,7 @@ export const metadata = {
   creator: "Global Academy Secondary School",
   publisher: "Global Academy Secondary School",
   category: "education",
+  // Note: themeColor is in viewport export (Next.js 15+ requirement)
   alternates: {
     canonical: BASE_URL,
   },
@@ -79,7 +86,6 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/assets/logo.png" />
         <link rel="apple-touch-icon" href="/assets/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
