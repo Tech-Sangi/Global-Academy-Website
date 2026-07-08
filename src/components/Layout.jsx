@@ -105,27 +105,33 @@ function Layout({ children }) {
             <a href="https://www.youtube.com/@globalacademymnr" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', display: 'flex' }}><Youtube size={16} className="ga-social-hover" /></a>
           </div>
           <div className="top-strip-contact" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            <div className="ga-nav-item" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Phone size={14} /> <span>099-524838/524839</span></div>
-            <div className="ga-nav-item" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Mail size={14} /> <span>info@globalacademy.edu.np</span></div>
+            <a href="tel:+97799524838" className="ga-nav-item" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'inherit', textDecoration: 'none' }}><Phone size={14} /> <span>099-524838/524839</span></a>
+            <a href="mailto:info@globalacademy.edu.np" className="ga-nav-item" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'inherit', textDecoration: 'none' }}><Mail size={14} /> <span>info@globalacademy.edu.np</span></a>
           </div>
         </div>
       </div>
 
-      <header className={`top-header glass ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+      <header className={`top-header glass ${isMobileMenuOpen ? 'mobile-open' : ''}`} role="banner">
         <div className="container header-inner">
-          <Link href="/" className="branding" onClick={() => setIsMobileMenuOpen(false)}>
-            <img src="/assets/logo.png" alt="Global Academy Logo" className="header-logo-img" />
+          <Link href="/" className="branding" onClick={() => setIsMobileMenuOpen(false)} aria-label="Global Academy Secondary School — Home">
+            <img src="/assets/logo.png" alt="Global Academy Secondary School Logo" className="header-logo-img" width={48} height={48} />
             <div className="branding-text">
-              <h1 className="branding-title">Global Academy</h1>
+              <div className="branding-title" aria-hidden="true">Global Academy</div>
               <span className="brand-subtitle">Secondary School</span>
             </div>
           </Link>
 
-          <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button
+            className="mobile-toggle"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="main-nav"
+          >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          <nav className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+          <nav id="main-nav" className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`} role="navigation" aria-label="Main navigation">
             <div className="mobile-nav-header">
               <button className="close-menu" onClick={() => setIsMobileMenuOpen(false)}>
                 <X size={28} />
@@ -151,7 +157,7 @@ function Layout({ children }) {
         {children}
       </main>
 
-      <footer className="footer">
+      <footer className="footer" role="contentinfo">
         <div className="container">
           <div className="footer-grid-top">
             {/* Branding Column */}

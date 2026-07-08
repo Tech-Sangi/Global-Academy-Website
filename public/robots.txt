@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Disallow internal/utility pages that have no search value
+Disallow: /report-error
+
 # Specific rules for AI Crawlers
 User-agent: GPTBot
 Allow: /

@@ -80,6 +80,7 @@ function ContactPage() {
                             <div className="glass hover-lift" style={{ padding: '2.5rem', borderRadius: 'var(--radius-lg)', background: 'white', border: '1px solid var(--line)' }}>
                                 <h3 style={{ fontSize: '1.5rem', marginBottom: '2rem', color: 'var(--text-heavy)' }}>Contact Information</h3>
 
+                                <address style={{ fontStyle: 'normal' }}>
                                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                                     <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                                         <div style={{ backgroundColor: 'var(--bg-subtle)', padding: '0.75rem', borderRadius: 'var(--radius-md)', color: 'var(--brand)' }}>
@@ -87,7 +88,7 @@ function ContactPage() {
                                         </div>
                                         <div>
                                             <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '0.25rem' }}>Phone</strong>
-                                            <span style={{ color: 'var(--text-soft)' }}>099-524838 / 524839</span>
+                                            <a href="tel:+97799524838" style={{ color: 'var(--text-soft)', textDecoration: 'none' }}>099-524838 / 524839</a>
                                         </div>
                                     </li>
 
@@ -124,6 +125,7 @@ function ContactPage() {
                                         </div>
                                     </li>
                                 </ul>
+                                </address>
                             </div>
 
                             {/* Embedded Google Map */}
@@ -162,6 +164,7 @@ function ContactPage() {
                                                 name="firstName"
                                                 value={formData.firstName}
                                                 onChange={handleChange}
+                                                autoComplete="given-name"
                                                 required
                                                 style={{ padding: '0.8rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)', outline: 'none', fontSize: '1rem', background: 'var(--bg)' }}
                                             />
@@ -174,6 +177,7 @@ function ContactPage() {
                                                 name="lastName"
                                                 value={formData.lastName}
                                                 onChange={handleChange}
+                                                autoComplete="family-name"
                                                 required
                                                 style={{ padding: '0.8rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)', outline: 'none', fontSize: '1rem', background: 'var(--bg)' }}
                                             />
@@ -188,6 +192,7 @@ function ContactPage() {
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
+                                            autoComplete="email"
                                             required
                                             style={{ padding: '0.8rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)', outline: 'none', fontSize: '1rem', background: 'var(--bg)' }}
                                         />
@@ -201,6 +206,7 @@ function ContactPage() {
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
+                                            autoComplete="tel"
                                             required
                                             style={{ padding: '0.8rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--line)', outline: 'none', fontSize: '1rem', background: 'var(--bg)' }}
                                         />

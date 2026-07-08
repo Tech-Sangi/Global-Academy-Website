@@ -21,8 +21,39 @@ export const pageCatalog = [
     path: '/academic-program',
     title: 'Academic Program',
     category: 'Academics',
-    summary: 'Explore curriculum, teaching approach, and pathways for student success.',
-    blocks: defaultBlocks('Academic Program'),
+    summary: 'From Montessori Pre-Primary to Grade 10 (SEE), Global Academy offers a comprehensive English-medium curriculum designed to build critical thinkers and future leaders.',
+    blocks: [
+      {
+        icon: '🌱',
+        title: 'Pre-Primary (Montessori)',
+        text: 'Our Montessori programme nurtures the natural curiosity of young learners through activity-based, child-centered learning. We focus on language development, numeracy, motor skills, and social skills in a safe, stimulating environment.',
+      },
+      {
+        icon: '📖',
+        title: 'Primary Level (Grades 1–5)',
+        text: 'The primary curriculum follows the national framework with an English-medium emphasis. Core subjects include English, Nepali, Mathematics, Science, Social Studies, and Computer. We use interactive and project-based methods to build a strong academic foundation.',
+      },
+      {
+        icon: '🔬',
+        title: 'Lower Secondary (Grades 6–8)',
+        text: 'Students explore a broader curriculum including Science, Mathematics, English, Nepali, Social Studies, Computer Science, and Optional Mathematics. Subject-specialist teachers lead classes, preparing students for the SEE pathway.',
+      },
+      {
+        icon: '🎓',
+        title: 'Secondary Level (Grades 9–10, SEE)',
+        text: 'Our SEE preparation programme is rigorous and results-focused. Students choose from Science or Management streams. The programme includes structured revision sessions, model exams, and one-on-one academic counselling. Global Academy has consistently produced top SEE performers in Sudurpashchim Province.',
+      },
+      {
+        icon: '🏆',
+        title: 'Co-Curricular Activities',
+        text: 'Beyond the classroom, students participate in sports, debate, cultural programmes, scouts, and science fairs. We believe well-rounded development is essential to producing capable citizens and future leaders.',
+      },
+      {
+        icon: '💻',
+        title: 'Technology Integration',
+        text: 'All students from Grade 1 onwards have access to our modern computer laboratory. ICT is integrated across subjects, and senior students learn programming fundamentals, digital literacy, and internet safety.',
+      },
+    ],
   },
 
   {
